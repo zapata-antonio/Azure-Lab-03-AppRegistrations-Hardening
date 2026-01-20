@@ -1,4 +1,4 @@
-# Lab 03: Hardening del Tenant - Control de App Registrations
+# 🧪Lab 03: Hardening del Tenant - Control de App Registrations
 
 ## 🎯 Objetivo
 Prevenir Shadow IT evitando que usuarios no autorizados registren aplicaciones (App Registrations) que puedan solicitar permisos sensibles.
