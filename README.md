@@ -19,24 +19,24 @@ Prevenir Shadow IT evitando que usuarios no autorizados registren aplicaciones (
 **Setting desactivado:**  
 <br>
 
-![Setting desactivado](images/01-setting-no.png)
+[<img src="images/01-setting-no.png" width="800">](images/01-setting-no.png)
+
 
 **Intento fallido con `usuario_3`:**  
 <br>
 
-![Intento fallido con usuario_3](images/02-error-noauth.png)
-
+[<img src="images/02-error-noauth.png" width="800">](images/02-error-noauth.png)
 ### Parte B — Excepción controlada
 **Rol asignado a `usuario_3`:**  
 
 <br>
-**Rol asignado a `usuario_3`:**
 
-![Rol asignado a usuario_3](images/03-role-assigned-user3.png)
+[<img src="images/03-role-assigned-user3.png" width="800">](images/03-role-assigned-user3.png)
 
 **Registro permitido tras la asignación:**
+<br>
 
-![Registro permitido tras rol](images/04-success-newregistration-user.png)
+[<img src="images/04-success-newregistration-user.png" width="800">](images/04-success-newregistration-user.png)
 
 ## ✅ Checklist de verificación
 ### Parte A — Bloqueo global
