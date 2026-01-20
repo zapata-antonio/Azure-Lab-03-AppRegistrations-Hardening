@@ -30,12 +30,13 @@ Prevenir Shadow IT evitando que usuarios no autorizados registren aplicaciones (
 **Rol asignado a `usuario_3`:**  
 
 <br>
+**Rol asignado a `usuario_3`:**
+
 ![Rol asignado a usuario_3](images/03-role-assigned-user3.png)
 
-**Registro permitido tras la asignación:**  
+**Registro permitido tras la asignación:**
 
-<br>
-![Registro permitido tras rol](images/04-success-newregistration-user3.png)
+![Registro permitido tras rol](images/04-success-newregistration-user.png)
 
 ## ✅ Checklist de verificación
 ### Parte A — Bloqueo global
