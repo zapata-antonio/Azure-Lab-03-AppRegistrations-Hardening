@@ -1,44 +1,47 @@
-# 🧪Lab 03: Hardening del Tenant - Control de App Registrations
+# Lab 03 — Hardening del Tenant: Control de App Registrations (Microsoft Entra ID)
 
-## 🎯 Objetivo
-Prevenir Shadow IT evitando que usuarios no autorizados registren aplicaciones (App Registrations) que puedan solicitar permisos sensibles.
+## Contexto (por qué lo hice)
+Un origen común de **Shadow IT** es permitir que cualquier usuario registre aplicaciones en el tenant.  
+Eso puede derivar en apps que pidan permisos sensibles y aumenten superficie de ataque. En este lab aplico un control **tenant-wide** y, cuando es necesario, una excepción **controlada** con mínimo privilegio.
 
-## 🛠️ Tareas realizadas
-### Parte A — Bloqueo global (tenant-wide)
-1. Bloqueo del registro de aplicaciones a nivel tenant: **Users can register applications = No**.
-2. Validación con `usuario_3` (usuario estándar sin roles) intentando registrar una app.
+## Objetivo
+Evitar que usuarios no autorizados registren aplicaciones (**App registrations**) y permitirlo solo a perfiles autorizados bajo **mínimo privilegio**.
 
-### Parte B — Extensión: Excepción controlada (granular)
-3. Asignación de rol mínimo a `usuario_3` para permitir registro de apps solo a usuarios autorizados.
-4. Validación de que `usuario_3` pasa de **no poder** a **poder** iniciar un **New registration** en *App registrations* manteniendo el bloqueo global.
+> Nota: este lab se centra en **App registrations** (registro de apps). **Enterprise applications** se usa para SSO/asignaciones/acceso y no es el foco aquí.
 
-> Nota: Este laboratorio se centra en **App registrations** (registro de apps). La sección **Enterprise applications** se gestiona en otros escenarios (acceso/SSO/asignaciones), no es el foco de este lab.
+---
 
-## 📸 Evidencias
+## Tareas realizadas
+
 ### Parte A — Bloqueo global
-**Setting desactivado:**  
-<br>
+1. Configuración tenant: **Users can register applications = No**
+2. Validación con `usuario_3` (usuario estándar) intentando registrar una app.
 
+### Parte B — Excepción controlada (granular)
+3. Asignación de **rol mínimo** a `usuario_3` para permitir registro de apps solo a usuarios autorizados.
+4. Validación: `usuario_3` pasa de **no poder** a **poder** iniciar un **New registration** manteniendo el bloqueo global.
+
+---
+
+## Evidencias
+
+### Parte A — Bloqueo global
+**Setting desactivado (Users can register applications = No):**  
 [<img src="images/01-setting-no.png" width="800">](images/01-setting-no.png)
 
-
-**Intento fallido con `usuario_3`:**  
-<br>
-
+**Intento fallido con `usuario_3` (sin permisos):**  
 [<img src="images/02-error-noauth.png" width="800">](images/02-error-noauth.png)
+
 ### Parte B — Excepción controlada
-**Rol asignado a `usuario_3`:**  
-
-<br>
-
+**Rol mínimo asignado a `usuario_3`:**  
 [<img src="images/03-role-assigned-user3.png" width="800">](images/03-role-assigned-user3.png)
 
-**Registro permitido tras la asignación:**
-<br>
-
+**Registro permitido tras la asignación (New registration):**  
 [<img src="images/04-success-newregistration-user.png" width="800">](images/04-success-newregistration-user.png)
 
-## ✅ Checklist de verificación
+---
+
+## Checklist de verificación
 ### Parte A — Bloqueo global
 - [x] Usuarios estándar no pueden registrar apps
 
@@ -47,5 +50,8 @@ Prevenir Shadow IT evitando que usuarios no autorizados registren aplicaciones (
 - [x] `usuario_3` puede registrar apps tras asignarle el rol mínimo
 - [x] El tenant mantiene el registro global bloqueado (control centralizado)
 
-## 🗣️ Qué le diría al cliente / entrevista
-“Bloqueo el registro de aplicaciones a nivel tenant para evitar Shadow IT y reducir el riesgo de exfiltración. Cuando hace falta, abro excepciones controladas solo para usuarios autorizados aplicando mínimo privilegio, manteniendo gobierno y trazabilidad.”
+---
+
+## Qué explicaría en una entrevista / a un cliente
+“Bloqueo el registro de aplicaciones a nivel tenant para reducir Shadow IT y limitar la exposición a apps que soliciten permisos sensibles.  
+Si el negocio necesita registrar apps, abro una excepción controlada asignando el **rol mínimo** solo a usuarios autorizados, manteniendo gobierno, trazabilidad y mínimo privilegio.”
